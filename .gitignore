@@ -1,6 +1,6 @@
-*
+
 # !.gitignore
 # !*.j[^a]*
-!*.[^java$]
+*.[^java$]
 # !src/com/AleXander
 #this is a comment
