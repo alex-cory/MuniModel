@@ -1,4 +1,5 @@
 /*
 !.gitignore
-!src/com/AleXander/
+!src
+# !src/com/AleXander
 #this is a comment
