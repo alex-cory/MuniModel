@@ -1,5 +1,5 @@
 /*
-!.gitignore
-!src/com
+# !.gitignore
+!*.[^java$]
 # !src/com/AleXander
 #this is a comment
