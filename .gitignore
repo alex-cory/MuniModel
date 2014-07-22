@@ -1,6 +1,3 @@
-!src/
-src/*
-!src/com/
-src/com/*
-!src/com/AleXander/*.java
-src/com/AleXander/*
+/*
+/*/
+!/src/com/AleXander/*.java
