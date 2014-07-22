@@ -1,2 +1,6 @@
 *
+<<<<<<< HEAD
 !*.java
+=======
+!src/*.java
+>>>>>>> 6b933f3c2218cdc5b3fb66bc6a99b14f91ddc88c
