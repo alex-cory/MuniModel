@@ -1,4 +1,4 @@
 *
 
 !.gitignore
-!./src/*.java
+!./src/com/AleXander/*.java
