@@ -1,0 +1,117 @@
+CS111B
+Final Project Tasks - Last Modification: 7/21/14 11:18AM
+Task 1: Describe Your Approach to Simulating a Mass Transit System
+
+The Domain of this program is the San Francisco Municipal Transportation Agency (SFMTA) which operates a system with two types of vehicles: a Bus or an LRV (Light Rail Vehicle).
+
+Each vehicle has a designated route, which starts at the origin and ends at the terminus.
+A vehicle is composed of one coach. Each coach can carry a maximum of 20 passengers.
+Between the origin of a route and the terminus of a route are stations along which persons may get on (embark) the vehicle or get off (disembark) the vehicle.
+Each station has a "stop id" that is unique throughout the SFMTA.
+No more than two vehicles traveling in the same direction may be present in a station at any time.
+Vehicles approaching an occupied station wait in the order of their arrival.
+
+A vehicle can travel along a route in one of two directions: Inbound - from the origin to the terminus, or Outbound from the terminus to the origin. No more than two vehicles operate on a route.
+
+Each vehicle has an identificaiton number that is unique throughout the SFMTA system. There are two types of persons that participate in the SFMTA operations, a Driver and a Passenger.
+
+A driver embarks or disembarks a vehicle only at the origin or at the terminus. After a driver has completed 7 trips on a route he or she must leave the vehicle and a new driver must get on.
+
+A passenger can embark and disembark at any station including the origin and the terminus. A passenger can change routes at any station that is shared by several routes, or is marked as a "Transfer Stop".
+
+Write your high level description of the SFMTA Domain to the file SFMTASimulationDescription.txt. Upload this after you complete task 2.
+
+A good source for answers to questions about the SFMTA can be found on their web site.
+
+Task 2: Design Objects to Model the SFMTA Domain
+
+These objects encapsulate data which represent important things about the object and object specific methods which give objects behaviors. List the objects you intend to create to simulate the SFMTA Domain, and tell why you chose them. Add these descriptions to the file SFMTASimulationDescription.txt. Upload this file when you are done.
+
+
+
+Task 3: Write an object oriented java program that consumes the data files and simulates traveling on the SFMTA
+
+There are seven (7) route files listing stations where a vehicle makes stops and the stop ID. The Stop ID are listed in order, from the origin to the terminal. A vehicle traveling from the origin stop to the terminal stop has a direction of inbound. A vehicle traveling from the terminal stop to the origin stop has a direction of outbound.
+
+47VanNess.csv
+49Mission.csv
+8xBayshore.csv
+KIngleside.csv
+LTaraval.csv
+NJudah.csv
+TThird.csv
+
+	A passenger can transfer between any two routes that share a Stop ID.
+	TransferStop.csv is a file that lists specific stops where a passenger can make a transfer even though the routes don't share a common Stop ID.
+
+passenger.csv contains a list of passengers, their initial Stop ID, and their destination Stop ID in comma separated value (csv) form, one per line.
+
+drivers.csv contains a list of drivers and the Stop ID of the station at which they are waiting to take over a vehicle
+
+Task 4: Run Your Program to Demonstrate the Following Behavior
+
+Each pasenger examines their initial stop and destination stop and creates a travel plan that may include transfer to another route.
+For each route, a vehicle leaves the origin station with one coach
+Each vehicle carries one driver and as many passengers as can fit
+Each vehicle stops at every station on its route.
+When the inbound K-Ingleside reaches the West Portal station its route changes to the T-Third
+When the outbound T-Third reaches the West Portal station its route changes to the K-Ingleside
+If there is room on the vehicle, enough passengers get on to fill it
+If a passenger has reached their destination stop or transfer stop, they get off and wait at that station for their next route. People already waiting at the station board a vehicle before a person who has just got off to transfer.
+When a vehicle has reached the terminal or origin station, it changes direction and returns on its route.
+Vehicles continue to run until no more passengers are waiting at any stations.
+Task 5: Before Running Your Program Collect the following output in two files:
+
+	StationPeopleCount.txt: For each station print out on one line, separated by a comma "," the Stop ID, and the number of people waiting there
+
+	StationDriverCount.txt: For each origin or terminal station, print out on one line separated by a comma "," the Stop ID and the number of drivers waiting there.
+
+Task 6: Collect the following output in a file: SFMTA_Trips.txt
+
+When each vehicle leaves an origin or terminal station one line is printed. The letter capital B or Capital L to indicate whether it is a BUS or LRV, The vehicle number, the driver name, the direction, the route and the number of coaches in the vehicle. These fields are separated by a colon ":"
+
+B:Vehicle#:Driver:Direction:RouteName:NumberOfCoaches
+
+At each station one line is printed for the people that get on: The letter capital E, Vehicle Number, the Stop ID, the count of people getting on, and their names separated by a comma ","
+
+E:Vehicle#:StopID:Count:Name1,Name2,..... Name19.
+
+At each station one line is printed for the people that get off: The letter capital D, Vehicle Number, the Stop ID, the count of people getting off, and their names separated by a comma ","
+
+D:Vehicle#:StopID:Count:Name1,Name2,..... Name19.
+
+When a vehicle has reached an origin or terminal station carrying no passengers and no passengers are waiting anywhere in the system, the following line is printed
+
+S:Vehicle#:Driver:Direction:RouteName
+
+Your Program Should Print NO OTHER OUTPUT on the console
+
+Task 7: Upload Your Files by Using the Corresponding Links in the Final Project Topic
+
+
+
+
+
+
+StationPeopleCount.txt: For each station print out on one line, separated by a comma "," the Stop ID, and the number of people waiting there
+
+StationDriverCount.txt: For each origin or terminal station, print out on one line separated by a comma "," the Stop ID and the number of drivers waiting there.
+
+EXAMPLE OUTPUT:   	(for 1 vehicle)
+B = BUS
+L = LRV
+
+// Vehicles Embarking
+B:Vehicle#:DriverName:Direction:RouteName
+OR
+L:Vehicle#:DriverName:Direction:RouteName
+// Stop
+StopID, NumberOfPeopleWaiting
+// People disembarking
+D:Vehicle#:StopID:Count:Name1,Name2,..... Name19.
+// People embarking
+E:Vehicle#:StopID:Count:Name1,Name2,..... Name19.
+// End of the Line (passengers still embarking)
+StopID, NumberOfDrivesWaiting
+// End of the Line (no passengers left)
+S:Vehicle#:Driver:Direction:RouteName
