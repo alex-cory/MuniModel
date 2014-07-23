@@ -13,26 +13,23 @@ public class DeleteMe {
                  {"8xBayshore.csv", "47VanNess.csv", "49Mission.csv", "KIngleside.csv", "LTaraval.csv", "NJudah.csv", "TThird.csv"} // vehicle values
          };
 
-         System.out.println(vehicleFiles[0][].length);
+//         System.out.println(vehicleFiles.length); // value = 2
+//         System.out.println(vehicleFiles[0].length); // value = 7
 
-
-		// // int vehicleTypes = 0; // index of first row.  ie: keys
-		// int vehicleValues = 1; // index of second row.  ie: values
-		// int rows = vehicleFiles[vehicleValues].length;
-		// int columns =
-  //       // for each Array in Arrays
-		// for (int i = 0; i < rows; i++) {
-
-  //           // for each File in Files   OR  Type in Types
-  //           for (int j = 0; j < columns; j++ )
-		// 	if (vehicleFiles[vehicleKeys] == "bus") {
-		//     	System.out.println("Bus: " + vehicleFiles[vehicleKeys][vehicleValues]);
-		// 	}
-		// 	if (vehicleFiles[vehicleKeys] == "lrv") {
-		//     	System.out.println("LRV: " + vehicleFiles[vehicleKeys][vehicleValues]);
-		// 	}
-		// }
-	}
+        // for each Row in Rows
+		int rowLength = vehicleFiles.length;
+		for (int i = 0; i < rowLength; i++) {
+            int columnLength = vehicleFiles[i].length;
+            String[] columns = vehicleFiles[i];
+             // for each Column in Columns
+            for (int j = 0; j < columnLength; j++ )
+                if (columns[j] == "bus") {
+                    System.out.println("Bus: " + columns[j]); // should output: BUS: Bus
+                } else if (columns[j] == "lrv") {
+                    System.out.println("LRV: " + columns[j]); // should output: LRV: Lrv
+                }
+            }
+        }
 
 //    public static void main(String[] args){
 //        String[][] names = {
