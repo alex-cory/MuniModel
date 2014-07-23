@@ -8,10 +8,16 @@
  *
  * @author Iris
  */
+package com.AleXander;
+
+import com.AleXander.MuniObject;
+import com.AleXander.TransferStop;
+
+
 import java.util.ArrayList;
-public class Route extends MuniObject{
-    ArrayList<TransferStop> TransferStops = new ArrayList<>();
-    ArrayList<Reg> RegStops = new ArrayList<>();
+public class Route extends MuniObject {
+    ArrayList<TransferStop> transferStops = new ArrayList<TransferStop>();
+    ArrayList<RegularStop> regStops = new ArrayList<RegularStop>();
     int startID;
     int endID;
     Vehicle[] vehicleOjs;
@@ -19,21 +25,20 @@ public class Route extends MuniObject{
     public Route(String vehicleType){
 
     }
-    public boolean contains(int stopID) {
-        boolean contains = false;
-        for(int i = 0; i < RegStops.size(); i++) {
-            if(RegStops.get(i) == stopID){
-                 contains = true;
-            }
-        }
-        if(contains){
-            for(int i = 0; i < transferStops.size(); i++){
-                if(TransferStops.get(i) == stopID){
-                    contains = true
-                }
-            }
-        }
-        return contains;
-
-    }
+//    public boolean contains(int stopID) {
+//        boolean contains = false;
+//        for(int i = 0; i < regStops.size(); i++) {
+//            if(regStops.get(i) == stopID){
+//                 contains = true;
+//            }
+//        }
+//        if(contains){
+//            for(int i = 0; i < transferStops.size(); i++){
+//                if(transferStops.get(i) == stopID){
+//                    contains = true;
+//                }
+//            }
+//        }
+//        return contains;
+//    }
 }

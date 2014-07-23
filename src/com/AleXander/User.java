@@ -1,11 +1,11 @@
+import com.AleXander.MuniObject;
+
 public class User extends MuniObject
 {
    char embark, disembark;
    String name;
 
-   getname (String personname)
-   {
-      name = personname;
+   public String getname() {
       return name;
    }
 }

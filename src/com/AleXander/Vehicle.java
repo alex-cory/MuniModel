@@ -1,13 +1,22 @@
-public class Vehicle extends MuniObject{
+package com.AleXander;
+
+import com.AleXander.*;
+
+public class Vehicle extends MuniObject {
     Passenger[] pass;
     Driver driverObj;
     char direction;
-    Route routeObj;
-    int vehicleID;
+//    Route routeObj;
+    String vehicleType;
+    String vehicleID; // B
 
-    public Vehicle(Driver d, char dir){
-        driver = d;
-        pass = new Passenger[20];
-        direction = dir;
-    }
+//    public Vehicle(Route routeObj, Driver driverObj, char direction, String vehicleType, String vehicleID) {
+//        this.routeObj = routeObj;
+//        pass = new Passenger[20];
+//        this.driverObj = driverObj;
+//        this.direction = direction;
+//        this.vehicleType = vehicleType;
+//        this.vehicleID = vehicleID;
+//
+//    }
 }

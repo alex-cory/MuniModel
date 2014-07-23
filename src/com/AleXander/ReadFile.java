@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class ReadFile {
     String path;
     RandomAccessFile myFile;
@@ -29,7 +31,7 @@ public class ReadFile {
      * @param raw array to hold retrieved values
      * @return a double array of unsorted values
      */
-    public String[][] (int numElements, int start,  String[][]raw){
+    public String[][] openCSV(int numElements, int start,  String[][] raw){
         String line;
         if(start < numElements){
             try{
@@ -81,14 +83,14 @@ public class ReadFile {
      * Converts a String[] to an int[]
      * @param one
      * @return
-     */
-    public int[] stringToInt(String[] one){
-        int[] two = int[one.length];
-        for(int i = 0; i < one.length; i++){
-            two[i] = Integer.parseInt(one[i]);
-        }
-        return two;
-    }
+//     */
+//    public int[] stringToInt(String[] one){
+//        int[] two = int[one.length];
+//        for(int i = 0; i < one.length; i++){
+//            two[i] = Integer.parseInt(one[i]);
+//        }
+//        return two;
+//    }
     /**
      * Generates the .csv file showing listing three things from arrays using recursion
      * @param one First array

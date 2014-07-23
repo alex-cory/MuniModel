@@ -1,3 +1,5 @@
+import com.AleXander.MuniObject;
+
 public class Stop extends MuniObject
 {
    int stopID;
