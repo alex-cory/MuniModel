@@ -1,17 +1,1 @@
-<<<<<<< HEAD
-!src/
-src/*
-!src/com/
-src/com/*
-!src/com/AleXander/*.java
-src/com/AleXander/*
-/JavaApplication10/nbproject/private/
-/munimodel/build/
-=======
 
-# !.gitignore
-# !*.j[^a]*
-*.[^java$]
-# !src/com/AleXander
-#this is a comment
->>>>>>> 7fd5a9253dafe7ac842391ac87fe77bb5c5d09fc
