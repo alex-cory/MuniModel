@@ -1,7 +1,7 @@
 package com.AleXander;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.ArrayList;
 import java.io.BufferedReader;
 
 public class Main {
@@ -16,7 +16,7 @@ public class Main {
         String missionFile = "./49mission.csv"; // bus
         String kInglesideFile = "./KIngleside.csv"; // LRV
         String lTaravalFile = "./LTaraval.csv"; // LRV
-        String nJudahFile = "./NJudah.dat"; // LRV
+        String nJudahFile = "./NJudah.csv"; // LRV
         String tThird = "./TThird.csv"; // LRV
         String passengersFile = "./passengers.csv";
         String transferStopsFile = "./TransferStops.csv";
@@ -39,10 +39,10 @@ public class Main {
             missionInputStream = new BufferedReader(new FileReader(new File(missionFile)));
             kInglesideInputStream = new BufferedReader(new FileReader(new File(kInglesideFile)));
             lTaravalInputStream = new BufferedReader(new FileReader(new File(lTaravalFile)));
-//            nJudahInputStream = new BufferedReader(new FileReader(new File(nJudahFile)));
-//            tThirdInputStream = new BufferedReader(new FileReader(new File(tThird)));
-//            passengersInputStream = new BufferedReader(new FileReader(new File(passengersFile)));
-//            transferStopsInputStream = new BufferedReader(new FileReader(new File(transferStopsFile)));
+            nJudahInputStream = new BufferedReader(new FileReader(new File(nJudahFile)));
+            tThirdInputStream = new BufferedReader(new FileReader(new File(tThird)));
+            passengersInputStream = new BufferedReader(new FileReader(new File(passengersFile)));
+            transferStopsInputStream = new BufferedReader(new FileReader(new File(transferStopsFile)));
 
 //            Route bayshore = new Route(bayshoreStops, bayshoreStartID, bayshoreStopID);
 //            LRV lrv1 = new LRV(bayshore, bayshorePassengers, bayshoreDriver, /* direction */ );
@@ -53,10 +53,11 @@ public class Main {
             missionInputStream.readLine();      // bus
             kInglesideInputStream.readLine();   // LRV
             lTaravalInputStream.readLine();     // LRV
-//            nJudahInputStream.readLine();        // LRV
-//            tThirdInputStream.readLine();       // LRV
+            nJudahInputStream.readLine();        // LRV
+            tThirdInputStream.readLine();       // LRV
+            //Don't read out the first line of the passengers b/c has no header
 //            passengersInputStream.readLine();   // Passengers
-//            transferStopsInputStream.readLine();// Transfer stops
+            transferStopsInputStream.readLine();// Transfer stops
 
             // Creating a variable for each line in each file
             String bayshoreLine;
@@ -64,39 +65,50 @@ public class Main {
             String missionLine;
             String kInglesideLine;
             String lTaravalLine;
-            String nJudaLine;
+            String nJudahLine;
             String tThirdLine;
             String passengersLine;
             String transferStopsLine;
 
+            // Create raw arrays and use below to parse into nested arrays
+            ArrayList<String[]> rawBayshore = new ArrayList<String[]>();
+            ArrayList<String[]> rawVanNess = new ArrayList<String[]>();
+            ArrayList<String[]>  rawMission = new ArrayList<String[]>();
+            ArrayList<String[]> rawKIngleside = new ArrayList<String[]>();
+            ArrayList<String[]> rawLTaraval = new ArrayList<String[]>();
+            ArrayList<String[]> rawNJudah = new ArrayList<String[]>();
+            ArrayList<String[]> rawTThird = new ArrayList<String[]>();
+            ArrayList<String[]> rawPassengers = new ArrayList<String[]>();
+            ArrayList<String[]> rawTransferStops = new ArrayList<String[]>();
+
             // Looping through each file
             while ((bayshoreLine = bayshoreInputStream.readLine()) != null) {
-//                System.out.println(bayshoreLine);
+                rawBayshore.add(bayshoreLine.split(","));
             }
             while ((vanNessLine = vanNessInputStream.readLine()) != null) {
-//               System.out.println(vanNessLine);
+               rawVanNess.add(vanNessLine.split(","));
             }
-           while ((missionLine = missionInputStream.readLine()) != null) {
-//               System.out.println(missionLine);
-           }
+            while ((missionLine = missionInputStream.readLine()) != null) {
+               rawMission.add(missionLine.split(","));
+            }
             while ((kInglesideLine = kInglesideInputStream.readLine()) != null) {
-//                System.out.println(kInglesideLine);
+                rawKIngleside.add(kInglesideLine.split(","));
             }
             while ((lTaravalLine = lTaravalInputStream.readLine()) != null) {
-//                System.out.println(lTaravalLine);
+                rawLTaraval.add(lTaravalLine.split(","));
             }
-//            while ((nJudaLine = nJudahInputStream.readLine()) != null) {
-////                System.out.println(nJudaLine);
-//            }
-//            while ((tThirdLine = tThirdInputStream.readLine()) != null) {
-////                System.out.println(tThirdLine);
-//            }
-//            while ((passengersLine = passengersInputStream.readLine()) != null) {
-////                System.out.println(passengersLine);
-//            }
-//            while ((transferStopsLine = transferStopsInputStream.readLine()) != null) {
-////                System.out.println(transferStopsLine);
-//            }
+            while ((nJudahLine = nJudahInputStream.readLine()) != null) {
+                rawNJudah.add(nJudahLine.split(","));
+            }
+            while ((tThirdLine = tThirdInputStream.readLine()) != null) {
+                rawTThird.add(tThirdLine.split(","));
+            }
+            while ((passengersLine = passengersInputStream.readLine()) != null) {
+                rawPassengers.add(passengersLine.split(","));
+            }
+            while ((transferStopsLine = transferStopsInputStream.readLine()) != null) {
+                rawTransferStops.add(transferStopsLine.split(","));
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -149,5 +161,27 @@ public class Main {
 ////
 //    }
 
+    }
+    public static void sortOutArrays(String[][] rawText, String[] one, String[] two, String[] three){
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        for(int q = 0; q < rawText.length; q++ ){
+            for(int i = 0; i < rawText[q].length; i++){
+                if(i == 0){
+                    one[j] = rawText[q][i];
+                    j++;
+                } else if(i == 1){
+                    two[k] = rawText[q][i];
+                    k++;
+                }
+                if(rawText[q].length == 3) {
+                    if (i == 3) {
+                        three[l] = rawText[q][i];
+                        l++;
+                    }
+                }
+            }
+        }
     }
 }

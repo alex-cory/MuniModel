@@ -56,7 +56,7 @@ public class ReadFile {
      * @param one an array to hold one half of the values
      * @param two an array to hold the other half of the values
      */
-    public void sortOutArrays(String[][] rawText, String[] one, String[] two, String[] three){
+    public static void sortOutArrays(String[][] rawText, String[] one, String[] two, String[] three){
         int j = 0;
         int k = 0;
         int l = 0;
