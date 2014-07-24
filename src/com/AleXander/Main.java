@@ -1,6 +1,5 @@
 package com.AleXander;
 
-import java.awt.event.ItemListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.io.BufferedReader;
@@ -11,17 +10,16 @@ public class Main {
 //    private static Scanner bayshoreInputStream;
 
     public static void main(String[] args) {
-
         // Setting the file variables
-        String bayshoreFile = "./8xBayshore.csv";       // bus
-        String vanNessFile = "./47VanNess.csv";         // bus
-        String missionFile = "./49mission.csv";         // bus
-        String kInglesideFile = "./KIngleside.csv";     // LRV
-        String lTaravalFile = "./LTaraval.csv";         // LRV
-        String nJudahFile = "./NJudah.csv";             // LRV
-        String tThird = "./TThird.csv";                 // LRV
-        String passengersFile = "./passengers.csv";     // Passengers
-        String transferStopsFile = "./TransferStops.csv";// Transfer Stops
+        String bayshoreFile = "./8xBayshore.csv"; // bus
+        String vanNessFile = "./47VanNess.csv"; // bus
+        String missionFile = "./49mission.csv"; // bus
+        String kInglesideFile = "./KIngleside.csv"; // LRV
+        String lTaravalFile = "./LTaraval.csv"; // LRV
+        String nJudahFile = "./NJudah.csv"; // LRV
+        String tThird = "./TThird.csv"; // LRV
+        String passengersFile = "./passengers.csv";
+        String transferStopsFile = "./TransferStops.csv";
 
         // Initializing the input stream variables
         BufferedReader bayshoreInputStream = null;
@@ -50,15 +48,15 @@ public class Main {
 //            LRV lrv1 = new LRV(bayshore, bayshorePassengers, bayshoreDriver, /* direction */ );
 
             // Skipping the first lines of each file
-            bayshoreInputStream.readLine();      // bus
-            vanNessInputStream.readLine();       // bus
-            missionInputStream.readLine();       // bus
-            kInglesideInputStream.readLine();    // LRV
-            lTaravalInputStream.readLine();      // LRV
+            bayshoreInputStream.readLine();     // bus
+            vanNessInputStream.readLine();      // bus
+            missionInputStream.readLine();      // bus
+            kInglesideInputStream.readLine();   // LRV
+            lTaravalInputStream.readLine();     // LRV
             nJudahInputStream.readLine();        // LRV
-            tThirdInputStream.readLine();        // LRV
-            passengersInputStream.readLine();    // Passengers
-            transferStopsInputStream.readLine(); // Transfer stops
+            tThirdInputStream.readLine();       // LRV
+            passengersInputStream.readLine();   // Passengers
+            transferStopsInputStream.readLine();// Transfer stops
 
             // Creating a variable for each line in each file
             String bayshoreLine;
@@ -82,57 +80,49 @@ public class Main {
             ArrayList<String[]> rawPassengers = new ArrayList<String[]>();
             ArrayList<String[]> rawTransferStops = new ArrayList<String[]>();
 
-            // Looping through each file by line
-            // 8xBayshore : BUS
+            // Looping through each file
             while ((bayshoreLine = bayshoreInputStream.readLine()) != null) {
                 rawBayshore.add(bayshoreLine.split(","));
             }
             String[] bayshoreStopNames = new String[rawBayshore.size()];
             String[] bayshoreStopIDs = new String[bayshoreStopNames.length];
             sortOutArrays(rawBayshore, bayshoreStopNames, bayshoreStopIDs);
-            // 47VanNess : BUS
             while ((vanNessLine = vanNessInputStream.readLine()) != null) {
                rawVanNess.add(vanNessLine.split(","));
             }
             String[] vanNessStopNames = new String[rawVanNess.size()];
             String[] vanNessStopIDs = new String[vanNessStopNames.length];
             sortOutArrays(rawVanNess, vanNessStopNames, vanNessStopIDs);
-            // 49Mission : BUS
             while ((missionLine = missionInputStream.readLine()) != null) {
                rawMission.add(missionLine.split(","));
             }
             String[] missionStopNames = new String[rawMission.size()];
             String[] missionStopIDs = new String[missionStopNames.length];
             sortOutArrays(rawMission, missionStopNames, missionStopIDs);
-            // KIngleside : LRV
             while ((kInglesideLine = kInglesideInputStream.readLine()) != null) {
                 rawKIngleside.add(kInglesideLine.split(","));
             }
             String[] kInglesideStopNames = new String[rawKIngleside.size()];
             String[] kInglesideStopIDs = new String[kInglesideStopNames.length];
             sortOutArrays(rawKIngleside, kInglesideStopNames, kInglesideStopIDs);
-            // LTaraval : LRV
             while ((lTaravalLine = lTaravalInputStream.readLine()) != null) {
                 rawLTaraval.add(lTaravalLine.split(","));
             }
             String[] lTaravalStopNames = new String[rawLTaraval.size()];
             String[] lTaravalStopIDs = new String[lTaravalStopNames.length];
             sortOutArrays(rawLTaraval, lTaravalStopNames, lTaravalStopIDs);
-            // NJudah : LRV
             while ((nJudahLine = nJudahInputStream.readLine()) != null) {
                 rawNJudah.add(nJudahLine.split(","));
             }
             String[] nJudahStopNames = new String[rawNJudah.size()];
             String[] nJudahStopIDs = new String[nJudahStopNames.length];
             sortOutArrays(rawNJudah, nJudahStopNames, nJudahStopIDs);
-            // TThird : LRV
             while ((tThirdLine = tThirdInputStream.readLine()) != null) {
                 rawTThird.add(tThirdLine.split(","));
             }
             String[] tThirdStopNames = new String[rawTThird.size()];
             String[] tThirdStopIDs = new String[tThirdStopNames.length];
             sortOutArrays(rawTThird, tThirdStopNames, tThirdStopIDs);
-            // Passengers
             while ((passengersLine = passengersInputStream.readLine()) != null) {
                 rawPassengers.add(passengersLine.split(","));
             }
@@ -140,7 +130,6 @@ public class Main {
             String[] passengersStartIDs = new String[passengersNames.length];
             String[] passengersEndIDs = new String[passengersStartIDs.length];
             sortOutArrays(rawPassengers, passengersNames, passengersStartIDs, passengersEndIDs);
-            // Transfer Stops
             while ((transferStopsLine = transferStopsInputStream.readLine()) != null) {
                 rawTransferStops.add(transferStopsLine.split(","));
             }
@@ -149,8 +138,13 @@ public class Main {
             String[] transferStopNames = new String[transferStopLRVIDs.length];
             String[] transferStopRoutesToBeTransfered = new String[transferStopNames.length];
             sortOutArrays(rawTransferStops, transferStopBusIDs, transferStopLRVIDs, transferStopNames, transferStopRoutesToBeTransfered);
-
-
+            for(int i = 0; i < transferStopBusIDs.length; i++){
+                System.out.println(transferStopBusIDs[i]);
+                System.out.println(transferStopLRVIDs[i]);
+                System.out.println(transferStopNames[i]);
+                System.out.println(transferStopRoutesToBeTransfered[i]);
+                System.out.println();
+            }
             // Final recap of all Arrays in Existence right now is as follows
             // stopNames[] for all routes
             // stopIDs[] for all routes
@@ -171,6 +165,48 @@ public class Main {
                 e.printStackTrace();
             }
         }
+
+        // inputStream2.nextLine(); // skips the first line (bad data)
+//            while (bayshoreInputStream.hasNext()) {
+//                String data = bayshoreInputStream.next(); // gets the next string value
+//                String values[] = data.split(",");
+////                String data2 = inputStream2.next(); // gets the line
+////                String nameValues[] = data2.split(",");
+////                Float data3 = inputStream3[count];
+//
+//                // storing the Abbreviations and Populations into the state object for each
+////                State state = new State(values[0], nameValues[0], Integer.parseInt(values[1]), data3);
+//
+//                // adding each state object to an array
+////                states.add(state);
+//
+////                System.out.println(state.getAbbreviation() + ", " + state.getName() + ", " + state.getPopulation() + ", " + state.getTotalPopulationPercent());
+////                count++;
+//                bayshoreInputStream.close();
+////                inputStream2.close();
+////                SetStateAttributes(count);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//        Scanner bayshoreInputStream;
+//        try {
+//
+//
+//            bayshoreInputStream.next(); // skips 1st line (bad - data)
+//
+//            while (bayshoreInputStream.hasNext()) {
+//                String data = bayshoreInputStream.next();
+//                String values[] = data.split(",");
+//                System.out.println(values);
+//            }
+//        } catch (IOException e){
+//            System.out.println(e.getMessage());
+//        }
+////
+//    }
+
     }
     public static void sortOutArrays(ArrayList<String[]> rawText, String[] one, String[] two){
         int j = 0;
