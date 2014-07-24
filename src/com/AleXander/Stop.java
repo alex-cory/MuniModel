@@ -1,4 +1,4 @@
-import com.AleXander.MuniObject;
+package com.AleXander;
 
 public class Stop extends MuniObject
 {

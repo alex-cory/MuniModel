@@ -18,7 +18,7 @@ public class Route extends MuniObject {
     int endID;
     Vehicle[] vehicleOjs;
 
-    public Route(String vehicleType){
+    public Route(String vehicleType, Stop[] stops){
 
     }
 //    public boolean contains(int stopID) {

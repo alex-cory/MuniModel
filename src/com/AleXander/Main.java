@@ -88,42 +88,49 @@ public class Main {
             String[] bayshoreStopNames = new String[rawBayshore.size()];
             String[] bayshoreStopIDs = new String[bayshoreStopNames.length];
             sortOutArrays(rawBayshore, bayshoreStopNames, bayshoreStopIDs);
+            // 47 VanNess
             while ((vanNessLine = vanNessInputStream.readLine()) != null) {
                rawVanNess.add(vanNessLine.split(","));
             }
             String[] vanNessStopNames = new String[rawVanNess.size()];
             String[] vanNessStopIDs = new String[vanNessStopNames.length];
             sortOutArrays(rawVanNess, vanNessStopNames, vanNessStopIDs);
+            // 49 Mission
             while ((missionLine = missionInputStream.readLine()) != null) {
                rawMission.add(missionLine.split(","));
             }
             String[] missionStopNames = new String[rawMission.size()];
             String[] missionStopIDs = new String[missionStopNames.length];
             sortOutArrays(rawMission, missionStopNames, missionStopIDs);
+            // K Ingleside
             while ((kInglesideLine = kInglesideInputStream.readLine()) != null) {
                 rawKIngleside.add(kInglesideLine.split(","));
             }
             String[] kInglesideStopNames = new String[rawKIngleside.size()];
             String[] kInglesideStopIDs = new String[kInglesideStopNames.length];
             sortOutArrays(rawKIngleside, kInglesideStopNames, kInglesideStopIDs);
+            // L Taraval
             while ((lTaravalLine = lTaravalInputStream.readLine()) != null) {
                 rawLTaraval.add(lTaravalLine.split(","));
             }
             String[] lTaravalStopNames = new String[rawLTaraval.size()];
             String[] lTaravalStopIDs = new String[lTaravalStopNames.length];
             sortOutArrays(rawLTaraval, lTaravalStopNames, lTaravalStopIDs);
+            // NJudah
             while ((nJudahLine = nJudahInputStream.readLine()) != null) {
                 rawNJudah.add(nJudahLine.split(","));
             }
             String[] nJudahStopNames = new String[rawNJudah.size()];
             String[] nJudahStopIDs = new String[nJudahStopNames.length];
             sortOutArrays(rawNJudah, nJudahStopNames, nJudahStopIDs);
+            //T Third
             while ((tThirdLine = tThirdInputStream.readLine()) != null) {
                 rawTThird.add(tThirdLine.split(","));
             }
             String[] tThirdStopNames = new String[rawTThird.size()];
             String[] tThirdStopIDs = new String[tThirdStopNames.length];
             sortOutArrays(rawTThird, tThirdStopNames, tThirdStopIDs);
+            // Passengers
             while ((passengersLine = passengersInputStream.readLine()) != null) {
                 rawPassengers.add(passengersLine.split(","));
             }
@@ -131,6 +138,7 @@ public class Main {
             String[] passengersStartIDs = new String[passengersNames.length];
             String[] passengersEndIDs = new String[passengersStartIDs.length];
             sortOutArrays(rawPassengers, passengersNames, passengersStartIDs, passengersEndIDs);
+            // Transfer Stops
             while ((transferStopsLine = transferStopsInputStream.readLine()) != null) {
                 rawTransferStops.add(transferStopsLine.split(","));
             }
@@ -157,6 +165,7 @@ public class Main {
             // transferStopNames[] i think this one is pretty self-explanitory
             // transferStopRoutesToBeTransfered[] contains the routes that transfer at that transfer stop
 
+            Route nJudah = new Route();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -224,5 +233,12 @@ public class Main {
                 }
             }
         }
+    }
+    public static int[] stringToInt(String[] one){
+        int[] out = new int[one.length];
+        for(int i = 0; i < one.length; i++){
+            out[i]  = Integer.parseInt(one[i]);
+        }
+        return out;
     }
 }
