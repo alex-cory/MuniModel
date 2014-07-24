@@ -12,8 +12,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ItemListener thisCoolness = new ItemListener();
-
         // Setting the file variables
         String bayshoreFile = "./8xBayshore.csv";       // bus
         String vanNessFile = "./47VanNess.csv";         // bus
@@ -152,7 +150,7 @@ public class Main {
             String[] transferStopRoutesToBeTransfered = new String[transferStopNames.length];
             sortOutArrays(rawTransferStops, transferStopBusIDs, transferStopLRVIDs, transferStopNames, transferStopRoutesToBeTransfered);
 
-            
+
             // Final recap of all Arrays in Existence right now is as follows
             // stopNames[] for all routes
             // stopIDs[] for all routes
