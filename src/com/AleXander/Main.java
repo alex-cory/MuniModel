@@ -131,14 +131,14 @@ public class Main {
             int[] intLTaravalIDs = stringToInt(lTaravalStopIDs);
             lTaravalStopIDs = null;
 
-            // NJudah
+            // N Judah
             while ((nJudahLine = nJudahInputStream.readLine()) != null) {
                 rawNJudah.add(nJudahLine.split(","));
             }
             String[] nJudahStopNames = new String[rawNJudah.size()];
             String[] nJudahStopIDs = new String[nJudahStopNames.length];
             sortOutArrays(rawNJudah, nJudahStopNames, nJudahStopIDs);
-            int[] intNJudahStopIDs = stringToInt(nJudahStopIDs);
+            int[] intNJudahIDs = stringToInt(nJudahStopIDs);
             nJudahStopIDs = null;
 
             //T Third
@@ -176,13 +176,14 @@ public class Main {
             int[] intTransferStopBusIDs = stringToInt(transferStopBusIDs);
             int[] intTransferStopLRVIDs = stringToInt(transferStopLRVIDs);
 
-            for(int i = 0; i < transferStopBusIDs.length; i++){
-                System.out.println(intTransferStopBusIDs[i]);
-                System.out.println(intTransferStopLRVIDs[i]);
-                System.out.println(transferStopNames[i]);
-                System.out.println(transferStopRoutesToBeTransfered[i]);
-                System.out.println();
-            }
+//            for(int i = 0; i < transferStopBusIDs.length; i++){
+//                System.out.println(intTransferStopBusIDs[i]);
+//                System.out.println(intTransferStopLRVIDs[i]);
+//                System.out.println(transferStopNames[i]);
+//                System.out.println(transferStopRoutesToBeTransfered[i]);
+//                System.out.println();
+//            }
+
             // Final recap of all Arrays in Existence right now is as follows
             // stopNames[] for all routes
             // stopIDs[] for all routes
@@ -193,8 +194,12 @@ public class Main {
             // transferStopLRVIDs[] stopID of the actual LRV stop
             // transferStopNames[] i think this one is pretty self-explanitory
             // transferStopRoutesToBeTransfered[] contains the routes that transfer at that transfer stop
-
-           // Route nJudah = new Route();
+            Stop[] nJudahStops = makeStopArray(intNJudahIDs, nJudahStopNames);
+            Route nJudah = new Route("LRV", nJudahStops);
+            Stop[] lTaravalStops = makeStopArray(intLTaravalIDs, lTaravalStopNames);
+            Route lTaraval = new Route("LRV", lTaravalStops);
+            Stop[] kInglesideStops = makeStopArray(intKInglesideStopIDs, kInglesideStopNames);
+            Route kIngleside = new Route("LRV", kInglesideStops);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -267,6 +272,13 @@ public class Main {
         int[] out = new int[one.length];
         for(int i = 0; i < one.length; i++){
             out[i]  = Integer.parseInt(one[i]);
+        }
+        return out;
+    }
+    public static Stop[] makeStopArray(int[] one, String[] two){
+        Stop[] out = new Stop[one.length];
+        for(int i  = 0; i < out.length; i++){
+            out[i] = new Stop(one[i], two[i]);
         }
         return out;
     }
