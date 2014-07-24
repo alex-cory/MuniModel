@@ -1,7 +1,5 @@
 package com.AleXander;
 
-import com.AleXander.*;
-
 public class Vehicle extends MuniObject {
     Passenger[] pass;
     Driver driverObj;

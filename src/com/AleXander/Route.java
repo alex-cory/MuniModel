@@ -10,10 +10,6 @@
  */
 package com.AleXander;
 
-import com.AleXander.MuniObject;
-import com.AleXander.TransferStop;
-
-
 import java.util.ArrayList;
 public class Route extends MuniObject {
     ArrayList<TransferStop> transferStops = new ArrayList<TransferStop>();
