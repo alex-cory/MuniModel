@@ -88,6 +88,9 @@ public class Main {
             String[] bayshoreStopNames = new String[rawBayshore.size()];
             String[] bayshoreStopIDs = new String[bayshoreStopNames.length];
             sortOutArrays(rawBayshore, bayshoreStopNames, bayshoreStopIDs);
+            int[] intBayshoreStopIDs = stringToInt(bayshoreStopIDs);
+            bayshoreStopIDs = null;
+
             // 47 VanNess
             while ((vanNessLine = vanNessInputStream.readLine()) != null) {
                rawVanNess.add(vanNessLine.split(","));
@@ -95,6 +98,9 @@ public class Main {
             String[] vanNessStopNames = new String[rawVanNess.size()];
             String[] vanNessStopIDs = new String[vanNessStopNames.length];
             sortOutArrays(rawVanNess, vanNessStopNames, vanNessStopIDs);
+            int[] intVanNessStopIDs = stringToInt(vanNessStopIDs);
+            vanNessStopIDs = null;
+
             // 49 Mission
             while ((missionLine = missionInputStream.readLine()) != null) {
                rawMission.add(missionLine.split(","));
@@ -102,6 +108,9 @@ public class Main {
             String[] missionStopNames = new String[rawMission.size()];
             String[] missionStopIDs = new String[missionStopNames.length];
             sortOutArrays(rawMission, missionStopNames, missionStopIDs);
+            int[] intMissionStopIDs = stringToInt(missionStopIDs);
+            missionStopIDs = null;
+
             // K Ingleside
             while ((kInglesideLine = kInglesideInputStream.readLine()) != null) {
                 rawKIngleside.add(kInglesideLine.split(","));
@@ -109,6 +118,9 @@ public class Main {
             String[] kInglesideStopNames = new String[rawKIngleside.size()];
             String[] kInglesideStopIDs = new String[kInglesideStopNames.length];
             sortOutArrays(rawKIngleside, kInglesideStopNames, kInglesideStopIDs);
+            int[] intKInglesideStopIDs = stringToInt(kInglesideStopIDs);
+            kInglesideStopIDs = null;
+
             // L Taraval
             while ((lTaravalLine = lTaravalInputStream.readLine()) != null) {
                 rawLTaraval.add(lTaravalLine.split(","));
@@ -116,6 +128,9 @@ public class Main {
             String[] lTaravalStopNames = new String[rawLTaraval.size()];
             String[] lTaravalStopIDs = new String[lTaravalStopNames.length];
             sortOutArrays(rawLTaraval, lTaravalStopNames, lTaravalStopIDs);
+            int[] intLTaravalIDs = stringToInt(lTaravalStopIDs);
+            lTaravalStopIDs = null;
+
             // NJudah
             while ((nJudahLine = nJudahInputStream.readLine()) != null) {
                 rawNJudah.add(nJudahLine.split(","));
@@ -123,6 +138,9 @@ public class Main {
             String[] nJudahStopNames = new String[rawNJudah.size()];
             String[] nJudahStopIDs = new String[nJudahStopNames.length];
             sortOutArrays(rawNJudah, nJudahStopNames, nJudahStopIDs);
+            int[] intNJudahStopIDs = stringToInt(nJudahStopIDs);
+            nJudahStopIDs = null;
+
             //T Third
             while ((tThirdLine = tThirdInputStream.readLine()) != null) {
                 rawTThird.add(tThirdLine.split(","));
@@ -130,6 +148,9 @@ public class Main {
             String[] tThirdStopNames = new String[rawTThird.size()];
             String[] tThirdStopIDs = new String[tThirdStopNames.length];
             sortOutArrays(rawTThird, tThirdStopNames, tThirdStopIDs);
+            int[] intTThirdStopIDs = stringToInt(tThirdStopIDs);
+            tThirdStopIDs = null;
+
             // Passengers
             while ((passengersLine = passengersInputStream.readLine()) != null) {
                 rawPassengers.add(passengersLine.split(","));
@@ -138,6 +159,11 @@ public class Main {
             String[] passengersStartIDs = new String[passengersNames.length];
             String[] passengersEndIDs = new String[passengersStartIDs.length];
             sortOutArrays(rawPassengers, passengersNames, passengersStartIDs, passengersEndIDs);
+            int[] intPassengerStartIDs = stringToInt(passengersStartIDs);
+            passengersStartIDs = null;
+            int[] intPassengerEndIDs = stringToInt(passengersEndIDs);
+            passengersEndIDs = null;
+
             // Transfer Stops
             while ((transferStopsLine = transferStopsInputStream.readLine()) != null) {
                 rawTransferStops.add(transferStopsLine.split(","));
@@ -147,9 +173,12 @@ public class Main {
             String[] transferStopNames = new String[transferStopLRVIDs.length];
             String[] transferStopRoutesToBeTransfered = new String[transferStopNames.length];
             sortOutArrays(rawTransferStops, transferStopBusIDs, transferStopLRVIDs, transferStopNames, transferStopRoutesToBeTransfered);
+            int[] intTransferStopBusIDs = stringToInt(transferStopBusIDs);
+            int[] intTransferStopLRVIDs = stringToInt(transferStopLRVIDs);
+
             for(int i = 0; i < transferStopBusIDs.length; i++){
-                System.out.println(transferStopBusIDs[i]);
-                System.out.println(transferStopLRVIDs[i]);
+                System.out.println(intTransferStopBusIDs[i]);
+                System.out.println(intTransferStopLRVIDs[i]);
                 System.out.println(transferStopNames[i]);
                 System.out.println(transferStopRoutesToBeTransfered[i]);
                 System.out.println();
@@ -165,7 +194,7 @@ public class Main {
             // transferStopNames[] i think this one is pretty self-explanitory
             // transferStopRoutesToBeTransfered[] contains the routes that transfer at that transfer stop
 
-            Route nJudah = new Route();
+           // Route nJudah = new Route();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
