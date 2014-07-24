@@ -81,6 +81,7 @@ public class Main {
             ArrayList<String[]> rawTransferStops = new ArrayList<String[]>();
 
             // Looping through each file
+            // 8x Bayshore
             while ((bayshoreLine = bayshoreInputStream.readLine()) != null) {
                 rawBayshore.add(bayshoreLine.split(","));
             }
