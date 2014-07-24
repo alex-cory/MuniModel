@@ -1,8 +1,6 @@
 package com.AleXander;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-
-public class Passenger extends BIConversion.User
+public class Passenger extends User
 {
    int initialID;
    int destinationID;
