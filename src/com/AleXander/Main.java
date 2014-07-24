@@ -167,47 +167,6 @@ public class Main {
             }
         }
 
-        // inputStream2.nextLine(); // skips the first line (bad data)
-//            while (bayshoreInputStream.hasNext()) {
-//                String data = bayshoreInputStream.next(); // gets the next string value
-//                String values[] = data.split(",");
-////                String data2 = inputStream2.next(); // gets the line
-////                String nameValues[] = data2.split(",");
-////                Float data3 = inputStream3[count];
-//
-//                // storing the Abbreviations and Populations into the state object for each
-////                State state = new State(values[0], nameValues[0], Integer.parseInt(values[1]), data3);
-//
-//                // adding each state object to an array
-////                states.add(state);
-//
-////                System.out.println(state.getAbbreviation() + ", " + state.getName() + ", " + state.getPopulation() + ", " + state.getTotalPopulationPercent());
-////                count++;
-//                bayshoreInputStream.close();
-////                inputStream2.close();
-////                SetStateAttributes(count);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//        Scanner bayshoreInputStream;
-//        try {
-//
-//
-//            bayshoreInputStream.next(); // skips 1st line (bad - data)
-//
-//            while (bayshoreInputStream.hasNext()) {
-//                String data = bayshoreInputStream.next();
-//                String values[] = data.split(",");
-//                System.out.println(values);
-//            }
-//        } catch (IOException e){
-//            System.out.println(e.getMessage());
-//        }
-////
-//    }
-
     }
     public static void sortOutArrays(ArrayList<String[]> rawText, String[] one, String[] two){
         int j = 0;
